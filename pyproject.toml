@@ -1,4 +1,10 @@
-# Exclude a variety of commonly ignored directories.
+[project]
+name = "pumaplot"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["jupyter>=1.1.1", "nbdev>=2.4.2", "pre-commit>=4.2.0"]
+
+[tool.ruff]
 exclude = [
     ".bzr",
     ".direnv",
@@ -21,46 +27,30 @@ exclude = [
     "dist",
     "node_modules",
     "venv",
-    # custom added below
     "pumaplot/",
     "setup.py",
     "_modidx.py",
 ]
 
-# extende the inclusion list to also include jupyternotebooks
 extend-include = ["*.ipynb"]
 
+extend-select = ['I', 'N', 'PD']
 
-# I -> enable isort
-# N -> pep8 naming
-# PD -> pandas-vet
-
-extend-select = ['I','N','PD']
-
-# Same as Black.
 line-length = 88
 indent-width = 4
 
-
-[lint]
-# Allow fix for all enabled rules (when `--fix`) is provided.
+[tool.ruff.lint]
 fixable = ["ALL"]
 
 ignore = ["F403"]
 
-# Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
-[format]
-
-# Like Black, use double quotes for strings.
+[tool.ruff.format]
 quote-style = "double"
 
-# Like Black, indent with spaces, rather than tabs.
 indent-style = "space"
 
-# Like Black, respect magic trailing commas.
 skip-magic-trailing-comma = false
 
-# Like Black, automatically detect the appropriate line ending.
 line-ending = "auto"

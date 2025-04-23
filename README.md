@@ -11,6 +11,13 @@ documentation.
 pip install pumaplot
 ```
 
-## How to use
+## How to dev 🧑‍💻
+
+## TODO
+
+```sh
+# install all the deps
+uv sync
 
 
+```
